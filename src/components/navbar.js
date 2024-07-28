@@ -2,7 +2,7 @@ import React from 'react'
 
 function navbar() {
   return (
-    <nav class="flex flex-wrap mx-7 my-6">
+    <nav class="flex flex-wrap mx-7 my-6 ">
   <div class="flex ml-12 grow h-14 space-x-10 justify-center lg:items-center lg:w-auto cursor-pointer">
       <a className="hover:border-sky-500 hover:border-b-2" href="#about">Features</a> 
       <a className="hover:border-sky-500 hover:border-b-2" href="#contact">About Us</a>
