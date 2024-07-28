@@ -8,9 +8,11 @@ export default function Home() {
     <div className="bg-midnight">
     <Navbar/> 
     <Hero/>
-    <br/>
-    <br/>
+    {/* <br/>
+    <br/> */}
+    <section id="chat">
     <Chatpage/>
+    </section>
     
     </div>
     </>

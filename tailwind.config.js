@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode:["class"],
+  darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
     './src/**/*.{js,jsx}',
   ],
   prefix: "",
@@ -17,6 +17,10 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -51,11 +55,15 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Include default Tailwind colors to ensure they are available
+        ...require('tailwindcss/colors'),
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        // Include default Tailwind border radius values
+        ...require('tailwindcss/defaultTheme').borderRadius,
       },
       keyframes: {
         "background-position-spin": {
@@ -85,13 +93,18 @@ module.exports = {
             transform: "translate(calc(100cqw - 100%), 0)",
           },
         },
-
+        // Include any other keyframes needed from default config or plugins
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
       animation: {
-        animation: {
-          backgroundPositionSpin:
-            "background-position-spin 3000ms infinite alternate",
-        },
+        backgroundPositionSpin: "background-position-spin 3000ms infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
         "accordion-down": "accordion-down 0.2s ease-out",
